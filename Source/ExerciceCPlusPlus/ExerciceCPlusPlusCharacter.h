@@ -66,7 +66,10 @@ public:
 protected:
 
 	void OnAction();
-
+	
+	void CrouchStart();
+	void CrouchEnd();
+	
 	void OnInspect();
 	void OnInspectReleased();
 	

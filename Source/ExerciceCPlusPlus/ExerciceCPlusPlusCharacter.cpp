@@ -125,6 +125,8 @@ void AExerciceCPlusPlusCharacter::SetupPlayerInputComponent(class UInputComponen
 	//Sets up an input key action to call Restart Player.
 	PlayerInputComponent->BindAction("Restart", IE_Pressed, this, &AExerciceCPlusPlusCharacter::CallRestartPlayer);
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AExerciceCPlusPlusCharacter::Fire);
+	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AExerciceCPlusPlusCharacter::CrouchStart);
+	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &AExerciceCPlusPlusCharacter::CrouchEnd);
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
@@ -346,3 +348,14 @@ void AExerciceCPlusPlusCharacter::Fire()
 	}
 }
 
+void AExerciceCPlusPlusCharacter::CrouchStart()
+{
+    printf("crouch");
+	Crouch();
+}
+
+void AExerciceCPlusPlusCharacter::CrouchEnd()
+{
+	printf("uncrouch");
+	UnCrouch();
+}
